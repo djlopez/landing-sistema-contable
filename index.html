@@ -11,14 +11,12 @@
       background: #f5f5f5;
       color: #333;
     }
-
     header {
       background: #2c3e50;
       color: white;
       padding: 2rem;
       text-align: center;
     }
-
     .container {
       max-width: 960px;
       margin: auto;
@@ -26,7 +24,6 @@
       background: white;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
@@ -34,7 +31,6 @@
       overflow: hidden;
       margin-bottom: 2rem;
     }
-
     .video-container iframe {
       position: absolute;
       width: 100%;
@@ -42,7 +38,6 @@
       left: 0;
       top: 0;
     }
-
     .cta-button {
       display: inline-block;
       background-color: #e74c3c;
@@ -55,25 +50,21 @@
       border: none;
       cursor: pointer;
     }
-
     .benefits ul {
       list-style: none;
       padding: 0;
     }
-
     .benefits li::before {
       content: "✔";
       color: green;
       margin-right: 8px;
     }
-
     .testimonials p {
       background: #ecf0f1;
       padding: 1rem;
       border-left: 4px solid #2980b9;
       margin: 1rem 0;
     }
-
     .counter {
       background: #f39c12;
       color: white;
@@ -83,11 +74,14 @@
       margin-top: 2rem;
       border-radius: 5px;
     }
-
-    .counter span {
-      font-weight: bold;
+    .urgente {
+      animation: parpadeo 1s infinite alternate;
+      background-color: red !important;
     }
-
+    @keyframes parpadeo {
+      from { background-color: #c0392b; }
+      to { background-color: #e74c3c; }
+    }
     input, textarea {
       width: 100%;
       padding: 0.5rem;
@@ -96,7 +90,6 @@
       border-radius: 4px;
       font-size: 1rem;
     }
-
     footer {
       background: #2c3e50;
       color: white;
@@ -107,7 +100,6 @@
   </style>
 </head>
 <body>
-
   <header>
     <h1>Tu contabilidad, más simple y poderosa que nunca</h1>
     <p>Oferta exclusiva para los primeros 10 clientes</p>
@@ -118,7 +110,7 @@
       <iframe src="https://www.youtube.com/embed/VIDEO_ID_AQUI" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="counter">
+    <div class="counter" id="contador">
       ¡Quedan <span id="countdown">00 días 00:00:00</span> para acceder al 50% de descuento!
     </div>
 
@@ -145,7 +137,6 @@
     <div id="formulario">
       <h2>Formulario de Solicitud</h2>
       <p>Completa tus datos y te contactaremos para brindarte acceso exclusivo a la demo:</p>
-
       <form id="demoForm">
         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
         <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
@@ -164,22 +155,17 @@
   <script>
     const form = document.getElementById('demoForm');
     const mensajeConfirmacion = document.getElementById('mensajeConfirmacion');
-
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-
       const data = {
         nombre: document.getElementById('nombre').value,
         email: document.getElementById('email').value,
         mensaje: document.getElementById('mensaje').value
       };
-
       fetch('https://script.google.com/macros/s/AKfycbwbsjc5sCjuTTO3ZDSoRvzAQhawDIVhjibF3AB0-5Lnkm4955W4rYVk4DnkkYa0nXzVwg/exec', {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       })
       .then(() => {
@@ -192,12 +178,17 @@
       });
     });
 
-    // Cuenta regresiva
-    const fechaLimite = new Date();
-    fechaLimite.setDate(fechaLimite.getDate() + 20); // Cambia a 10 si quieres
+    const fechaLimite = new Date("2025-08-20T23:59:59");
     function actualizarCuentaRegresiva() {
       const ahora = new Date().getTime();
       const distancia = fechaLimite.getTime() - ahora;
+      const contador = document.getElementById("contador");
+
+      if (distancia <= 0) {
+        document.getElementById("countdown").innerHTML = "🚨 ¡La promoción ha finalizado!";
+        contador.classList.remove("urgente");
+        return;
+      }
 
       const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
       const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -206,12 +197,13 @@
 
       document.getElementById("countdown").innerHTML = `${dias} días ${horas}:${minutos}:${segundos}`;
 
-      if (distancia < 0) {
-        document.getElementById("countdown").innerHTML = "¡La oferta ha finalizado!";
+      if (dias <= 5) {
+        contador.classList.add("urgente");
       }
     }
+
     setInterval(actualizarCuentaRegresiva, 1000);
+    actualizarCuentaRegresiva();
   </script>
 </body>
 </html>
-
