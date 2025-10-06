@@ -131,9 +131,9 @@
 
     <div class="testimonials">
       <h2>¿Por qué confiar en nosotros?</h2>
-      <p>“Linux, Python y PostgreSQL: tecnologías que usan Google, Instagram y Red Hat. Nosotros las ponemos al servicio de tu contabilidad.”</p>
-      <p>“Más rápido que sistemas tradicionales, con mayor flexibilidad y con mejoras modulares constantes.”</p>
-      <p>“Desarrollado con clientes reales y la experiencia es simple, intuitiva y estable.”</p>
+      <p>"Linux, Python y PostgreSQL: tecnologías que usan Google, Instagram y Red Hat. Nosotros las ponemos al servicio de tu contabilidad."</p>
+      <p>"Más rápido que sistemas tradicionales, con mayor flexibilidad y con mejoras modulares constantes."</p>
+      <p>"Desarrollado con clientes reales y la experiencia es simple, intuitiva y estable."</p>
     </div>
 
     <div id="formulario">
@@ -142,6 +142,7 @@
       <form id="demoForm">
         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
         <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+        <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono para whatsapp" required>
         <textarea id="mensaje" name="mensaje" placeholder="¿Tenés alguna pregunta?" rows="4"></textarea>
         <br>
         <button type="submit" class="cta-button">Enviar Solicitud</button>
@@ -162,9 +163,10 @@
       const data = {
         nombre: document.getElementById('nombre').value,
         email: document.getElementById('email').value,
+        telefono: document.getElementById('telefono').value,
         mensaje: document.getElementById('mensaje').value
       };
-      fetch('https://script.google.com/macros/s/AKfycbwbsjc5sCjuTTO3ZDSoRvzAQhawDIVhjibF3AB0-5Lnkm4955W4rYVk4DnkkYa0nXzVwg/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbzj9HHk0RnKuxDb0XZ9-F-ymGuPXcHGKH-Y7Up3gGCpfHOzJWx_a1o71FGjRUzkcQLe/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
