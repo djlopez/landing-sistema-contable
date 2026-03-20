@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOVA - Sistema Contable</title>
+  <style>
+    :root {
+      --primary: #3b82f6; /* Azul */
+      --accent-gold: #fbbf24; /* Amarillo/Oro */
+      --accent-green: #10b981;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-dim: #94a3b8;
+      --urgency: #ef4444; /* Rojo */
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 4rem 1rem 2rem;
+      text-align: center;
+      background: radial-gradient(circle at top, #2563eb22 0%, #0f172a 100%);
+    }
+
+    .brand-nova {
+      font-size: 5rem;
+      font-weight: 900;
+      margin: 0;
+      line-height: 1;
+      letter-spacing: 5px;
+      background: linear-gradient(to bottom, #fde68a 0%, #fbbf24 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0.8rem 0;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .container { max-width: 850px; margin: auto; padding: 2rem; }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2.5rem;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 1rem;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .video-container iframe { position: absolute; width: 100%; height: 100%; left: 0; top: 0; }
+
+    .offer-block {
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .founder-premium {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 2px solid var(--primary);
+      text-align: center;
+    }
+
+    .tier-limited { background: rgba(255,255,255,0.03); }
+    .tier-launch { background: rgba(59, 130, 246, 0.05); border-style: dashed; }
+
+    .price-tag { font-size: 1.8rem; font-weight: 800; display: block; margin: 0.5rem 0; color: var(--primary); }
+    .gold-text { color: var(--accent-gold); }
+
+    .counter-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* EL COLOR INICIAL AHORA SE MANEJA POR JAVASCRIPT */
+    .countdown-timer {
+      color: white;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 1rem 0 2rem;
+      transition: background-color 0.5s ease;
+    }
+
+    .benefits-list {
+        list-style: none; padding: 0; margin: 1.5rem 0;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; text-align: left;
+    }
+    .benefits-list li::before { content: "✓"; color: var(--accent-green); margin-right: 8px; font-weight: bold; }
+
+    .cta-button {
+      display: block;
+      background: var(--primary);
+      color: white;
+      padding: 1.2rem;
+      text-decoration: none;
+      border-radius: 0.75rem;
+      font-weight: bold;
+      text-align: center;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .cta-button:hover { background: #2563eb; transform: translateY(-2px); }
+
+    input, textarea {
+      width: 100%; background: #0f172a; border: 1px solid #334155;
+      color: white; padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem;
+      box-sizing: border-box;
+    }
+
+    footer { text-align: center; padding: 3rem; color: var(--text-dim); font-size: 0.8rem; }
+
+    @media (max-width: 600px) {
+      .brand-nova { font-size: 3.5rem; }
+      .brand-sub { font-size: 1.1rem; }
+      .benefits-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 class="brand-nova">NOVA</h1>
+  <p class="brand-sub">EL SISTEMA CONTABLE DE PRÓXIMA GENERACIÓN</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/pYjMBsgdZe8" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="offer-block founder-premium">
+        <div style="color: var(--primary); font-weight: bold; letter-spacing: 2px; font-size: 0.8rem;">RECOMENDADO</div>
+        <h2 style="margin: 0.5rem 0;">💎 50 PRIMEROS FUNDADORES</h2>
+        <span class="price-tag">PRECIO ÚNICO DE POR VIDA</span>
+        <ul class="benefits-list">
+          <li>Acceso Ilimitado</li>
+          <li>Sin mensualidades</li>
+          <li>Actualizaciones de por vida</li>
+          <li>Soporte 1-a-1 directo</li>
+        </ul>
+
+        <span class="counter-label">Esta oportunidad cierra en:</span>
+        <div class="countdown-timer" id="timer-fundadores">Calculando...</div>
+        <span class="counter-label">o al alcanzar 50 Fundadores, lo que ocurra primero...</spam>
+    </div>
+
+    <div class="offer-block tier-limited">
+        <h3 style="margin-top: 0;" class="gold-text">⭐ 40 CLIENTES SELECCIONADOS</h3>
+        <p>Precio reducido y condiciones inmejorables para quienes buscan un sistema robusto y escalable.</p>
+        <ul class="benefits-list">
+          <li>Gestión contable completa</li>
+          <li>Módulos escalables con IA</li>
+          <li>Actualizaciones y soporte por 5 años</li>
+          <li>Desarrollo modular contante</li>
+        </ul>
+    </div>
+
+    <div class="offer-block tier-launch">
+        <h3 style="margin-top: 0;">🚀 OFERTA DE LANZAMIENTO</h3>
+        <p>Accede con una <strong>facilidad de pago increíble</strong> antes de la apertura oficial al mercado.</p>
+
+        <span class="counter-label" style="margin-top: 1rem;">La oferta de lanzamiento expira en:</span>
+        <div class="countdown-timer" id="timer-lanzamiento">Calculando...</div>
+    </div>
+
+    <a href="#formulario" class="cta-button">SOLICITAR MI ACCESO AHORA</a>
+  </div>
+
+  <div class="card" id="formulario">
+    <h2>Reserva tu cupo hoy</h2>
+    <form id="demoForm">
+      <input type="text" id="nombre" placeholder="Tu nombre" required>
+      <input type="email" id="email" placeholder="Tu correo electrónico" required>
+      <input type="tel" id="telefono" placeholder="WhatsApp para contacto" required>
+      <textarea id="mensaje" placeholder="¿Tienes alguna pregunta sobre el sistema?" rows="3"></textarea>
+      <button type="submit" class="cta-button">ENVIAR SOLICITUD</button>
+    </form>
+    <div id="mensajeConfirmacion" style="margin-top: 1rem; text-align: center; font-weight: bold;"></div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 - NOVA Sistema Contable. C++ + PostgreSQL.<br>
+  Hecho para profesionales contables de excelencia.
+</footer>
+
+<script>
+  function iniciarContador(idElemento, fechaDestino) {
+    const el = document.getElementById(idElemento);
+    const target = new Date(fechaDestino).getTime();
+
+    const intervalo = setInterval(() => {
+      const ahora = new Date().getTime();
+      const distancia = target - ahora;
+
+      if (distancia <= 0) {
+        el.innerHTML = "OFERTA FINALIZADA";
+        el.style.backgroundColor = "#334155"; // Gris cuando termina
+        clearInterval(intervalo);
+        return;
+      }
+
+      const d = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      // LÓGICA DE COLORES SOLICITADA
+      if (d < 10) {
+        el.style.backgroundColor = "var(--urgency)"; // Rojo (< 10 días)
+      } else if (d < 20) {
+        el.style.backgroundColor = "var(--accent-gold)"; // Amarillo (< 20 días)
+      } else {
+        el.style.backgroundColor = "var(--primary)"; // Azul (Inicio)
+      }
+
+      el.innerHTML = `${d} días, ${h} horas, ${m} minutos, ${s} segundos`;
+    }, 1000);
+  }
+
+  // Fechas configuradas en formato estándar (Año-Mes-Día) para evitar errores de región
+  iniciarContador("timer-fundadores", "2026-06-01T23:59:59");
+  iniciarContador("timer-lanzamiento", "2026-10-30T23:59:59");
+
+
+  const form = document.getElementById('demoForm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('mensajeConfirmacion').textContent = "Enviando solicitud...";
+    fetch('https://script.google.com/macros/s/AKfycbzj9HHk0RnKuxDb0XZ9-F-ymGuPXcHGKH-Y7Up3gGCpfHOzJWx_a1o71FGjRUzkcQLe/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify({
+        nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        telefono: document.getElementById('telefono').value,
+        mensaje: document.getElementById('mensaje').value
+      })
+    })
+    .then(() => {
+      document.getElementById('mensajeConfirmacion').style.color = "#10b981";
+      document.getElementById('mensajeConfirmacion').textContent = "✅ ¡Enviado con éxito!";
+      form.reset();
+    });
+  });
+</script>
+
+</body>
+</html>
