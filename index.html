@@ -150,6 +150,46 @@
       .brand-sub { font-size: 1.1rem; }
       .benefits-list { grid-template-columns: 1fr; }
     }
+
+    /* ── Barra de progreso de Fundadores ── */
+    .founders-progress-wrap {
+      margin-top: 1.2rem;
+    }
+    .founders-progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+    .founders-progress-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      color: var(--text-dim);
+    }
+    .founders-progress-count {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+    .founders-progress-track {
+      width: 100%;
+      height: 10px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .founders-progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #3b82f6, #fbbf24);
+      transition: width 0.6s ease;
+    }
+    .founders-progress-sub {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-top: 0.4rem;
+    }
   </style>
 </head>
 <body>
@@ -179,7 +219,21 @@
 
         <span class="counter-label">Esta oportunidad cierra en:</span>
         <div class="countdown-timer" id="timer-fundadores">Calculando...</div>
-        <span class="counter-label">o al alcanzar 50 Fundadores, lo que ocurra primero...</spam>
+        <span class="counter-label">o al alcanzar 50 Fundadores, lo que ocurra primero...</span>
+
+        <!-- ── BARRA DE PROGRESO DE FUNDADORES ── -->
+        <div class="founders-progress-wrap">
+          <div class="founders-progress-header">
+            <span class="founders-progress-label">Cupos ocupados</span>
+            <span class="founders-progress-count" id="founders-count-label">12 / 50</span>
+          </div>
+          <div class="founders-progress-track">
+            <div class="founders-progress-fill" id="founders-progress-fill" style="width: 24%"></div>
+          </div>
+          <div class="founders-progress-sub" id="founders-progress-sub">38 cupos restantes</div>
+        </div>
+        <!-- ── FIN BARRA ── -->
+
     </div>
 
     <div class="offer-block tier-limited">
@@ -261,6 +315,14 @@
   iniciarContador("timer-fundadores", "2026-08-01T23:59:59");
   iniciarContador("timer-lanzamiento", "2026-10-30T23:59:59");
 
+  // ── Barra de progreso: cambia solo este valor ──
+  const FUNDADORES_ACTUALES = 00; // <-- actualiza este número manualmente
+  const FUNDADORES_TOTAL = 50;
+  const restantes = FUNDADORES_TOTAL - FUNDADORES_ACTUALES;
+  const porcentaje = Math.min((FUNDADORES_ACTUALES / FUNDADORES_TOTAL) * 100, 100);
+  document.getElementById('founders-progress-fill').style.width = porcentaje + '%';
+  document.getElementById('founders-count-label').textContent = FUNDADORES_ACTUALES + ' / ' + FUNDADORES_TOTAL;
+  document.getElementById('founders-progress-sub').textContent = restantes + ' cupo' + (restantes === 1 ? '' : 's') + ' restante' + (restantes === 1 ? '' : 's');
 
   const form = document.getElementById('demoForm');
   form.addEventListener('submit', function (e) {
