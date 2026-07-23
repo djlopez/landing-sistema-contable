@@ -22,6 +22,8 @@
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     header {
@@ -241,6 +243,24 @@
       .benefits-list, .value-grid, .steps-grid { grid-template-columns: 1fr; }
       .guarantee-block { flex-direction: column; text-align: center; }
       .photo-grid img { max-height: 260px; }
+
+      /* Más espacio disponible dentro de las tarjetas en pantallas chicas */
+      .container { padding: 0 1rem 1rem; }
+      .card { padding: 1.5rem 1.25rem; }
+      .offer-block { padding: 1.5rem 1.25rem; }
+      .guarantee-block { padding: 1.5rem; }
+
+      /* Textos que se salían de sus tarjetas/botones en móvil */
+      .price-tag { font-size: 1.6rem; }
+      .founder-premium h2 { font-size: 1.4rem !important; }
+      .tier-limited h3, .tier-launch h3 { font-size: 1.1rem !important; }
+
+      /* Encabezado de la barra de progreso: el texto largo desbordaba el contenedor flex */
+      .founders-progress-header {
+        flex-wrap: wrap;
+        row-gap: 0.3rem;
+      }
+      .founders-progress-label { font-size: 0.68rem; letter-spacing: 1px; }
     }
 
     /* Barra de progreso de Fundadores */
