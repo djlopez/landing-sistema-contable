@@ -271,11 +271,119 @@
     .founders-progress-track { width: 100%; height: 10px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; }
     .founders-progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #3b82f6, #fbbf24); transition: width 0.6s ease; }
     .founders-progress-sub { font-size: 0.72rem; color: var(--text-dim); margin-top: 0.4rem; }
+
+    /* --- Agregado: eyebrow de dolor sobre el logo --- */
+    .brand-eyebrow {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    /* --- Agregado: bloque de video / guion de apoyo --- */
+    .video-placeholder {
+      background: rgba(0,0,0,0.25);
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 1rem;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .video-placeholder-icon {
+      width: 64px; height: 64px; margin: 0 auto 1rem;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: white;
+    }
+    .video-placeholder p { margin: 0; color: var(--text-dim); font-size: 0.95rem; }
+    .video-script {
+      background: rgba(255,255,255,0.03);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .video-script strong { color: var(--text); font-style: normal; }
+
+    /* --- Agregado: mini garantía arriba, antes de la oferta --- */
+    .guarantee-mini {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      margin: 1.5rem 0 0;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+    }
+    .guarantee-mini span.icon { font-size: 1.3rem; }
+    .guarantee-mini strong { color: var(--accent-green); }
+
+    /* --- Agregado: quinto item de valor a ancho completo --- */
+    .value-item-full { grid-column: 1 / -1; }
+
+    /* --- Agregado: testimonios --- */
+    .testimonial-section { margin: 2.5rem 0; }
+    .testimonial-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    .testimonial-card p.quote { font-size: 0.92rem; color: var(--text); line-height: 1.55; margin: 0 0 1rem; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .avatar-circle {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--primary), var(--accent-gold));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.9rem; color: #0f172a;
+    }
+    .testimonial-author .who { font-size: 0.82rem; color: var(--text-dim); line-height: 1.3; }
+    .testimonial-author .who strong { color: var(--text); display: block; font-size: 0.88rem; }
+
+    /* --- Agregado: stack de valor dentro de la oferta Fundadores --- */
+    .value-stack { margin: 1.5rem 0; text-align: left; }
+    .value-stack-row {
+      display: flex; justify-content: space-between; gap: 1rem;
+      padding: 0.5rem 0; font-size: 0.9rem; color: var(--text-dim);
+      border-bottom: 1px dashed rgba(255,255,255,0.08);
+    }
+    .value-stack-total {
+      display: flex; justify-content: space-between; gap: 1rem;
+      padding: 0.75rem 0; margin-top: 0.25rem; font-size: 1rem; font-weight: 700; color: var(--text);
+    }
+    .value-stack-price {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      padding: 0.9rem 1rem; margin-top: 0.5rem;
+      background: rgba(251, 191, 36, 0.1); border-radius: 0.6rem;
+      font-weight: 800; color: var(--accent-gold); font-size: 1.05rem;
+    }
+    .price-anchor { font-size: 0.85rem; color: var(--text-dim); margin: 0.75rem 0 0; text-align: center; }
+    .price-anchor .old { text-decoration: line-through; opacity: 0.7; }
+    .price-anchor .new { color: var(--accent-gold); font-weight: 800; }
+
+    /* --- Agregado: ofertas secundarias más discretas que Fundadores --- */
+    .secondary-tiers-intro { text-align: center; color: var(--text-dim); font-size: 0.95rem; margin: 0 0 1.25rem; }
+    .tier-limited h3, .tier-launch h3 { font-size: 1.1rem; }
+
+    @media (max-width: 650px) {
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .brand-eyebrow { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
 
 <header>
+  <p class="brand-eyebrow">¿Tu sistema contable se cuelga justo en el cierre de mes?</p>
   <h1 class="brand-nova">NOVA</h1>
   <p class="brand-sub">El sistema contable pensado para profesionales que exigen velocidad, seguridad y resultados.</p>
   <p class="brand-hook">Organiza tu contabilidad y gestiona tu estudio<br> en la mitad del tiempo</p>
@@ -284,9 +392,29 @@
 <div class="container">
 
   <div class="card">
-    <!-- Foto de Profesionales Contables -->
+    <h3 style="text-align:center; margin-top:0;">Dale play al vídeo...</h3>
+    <video
+      controls
+      playsinline
+      preload="metadata"
+      controlslist="nodownload"
+      oncontextmenu="return false"
+      style="width: 100%; max-width: 900px; border-radius: 12px; display: block; margin: 0 auto;"
+    >
+      <source src="/home/zepol/Vídeos/publicidad/nova/3.mp4" type="video/mp4">
+      Tu navegador no puede reproducir este video.
+    </video>
+  </div>
+
+  <div class="card">
+   <!--  Foto de Profesionales Contables-->
     <div class="photo-grid">
-      <img src="contadoras.png" alt="Contadores y contadoras trabajando de forma relajada y colaborativa" loading="lazy">
+     <!-- <img src="contadoras.png" alt="Contadores y contadoras trabajando de forma relajada y colaborativa" loading="lazy"> -->
+    </div>
+
+    <div class="guarantee-mini">
+      <span class="icon">🛡️</span>
+      <span><strong>Sin riesgo:</strong> probá NOVA 90 días luego de su lanzamiento en tu operación diaria. Si no es el sistema más rápido y sólido que usaste, te devolvemos el 100%.</span>
     </div>
 
     <!-- Por qué somos diferentes (Justificación de Valor) -->
@@ -309,6 +437,38 @@
           <h4>🤝 Desarrollo colaborativo</h4>
           <p>NOVA se desarrolla desde cero a partir de los requerimientos de estudios contables reales. Cada módulo y mejora nace de la experiencia directa de nuestros clientes, que participan activamente en su evolución.</p>
         </div>
+        <div class="value-item value-item-full">
+          <h4>🧾 Pensado para el fisco paraguayo</h4>
+          <p>NOVA se está construyendo teniendo en cuenta la normativa vigente de facturación electrónica y los criterios de la SET, para que el cierre contable de tu estudio no dependa de parches de último momento ni de planillas paralelas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIOS: ejemplos ficticios para mostrar el formato. Reemplazar nombres, estudios y citas por testimonios reales de tus contadores beta. -->
+    <div class="testimonial-section">
+      <h3 style="text-align: center; margin-top: 0;">Lo que dicen los estudios que ya lo están probando</h3>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="quote">“Por fin pude plantear directamente qué funciones necesito en mi trabajo diario. Me gusta que NOVA se esté desarrollando escuchando primero a los profesionales que realmente usamos este tipo de sistemas.”</p>
+          <div class="testimonial-author">
+            <div class="avatar-circle">MR</div>
+            <div class="who"><strong>Marta R.</strong>Contadora — Estudio Aranda</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">“La posibilidad de incorporar facturación electrónica era algo que necesitaba para poder ofrecer una solución más completa a mis clientes. Me entusiasma que NOVA esté contemplando esta función desde su desarrollo y poder aportar mi experiencia para que realmente responda a las necesidades de un estudio contable.”</p>
+          <div class="testimonial-author">
+            <div class="avatar-circle">CB</div>
+            <div class="who"><strong>Carlos B.</strong>Socio — B&F Consultores</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">“Muchas veces el problema no es la contabilidad, sino tener que adaptar nuestra forma de trabajar al sistema. Participar en el desarrollo de NOVA cambia eso: podemos ayudar a construir las herramientas que realmente necesitamos para que los cierres sean cada vez más sencillos y fáciles de gestionar.”</p>
+          <div class="testimonial-author">
+            <div class="avatar-circle">LG</div>
+            <div class="who"><strong>Lucía G.</strong>Gerente Adm. — Grupo del Este</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -328,6 +488,17 @@
           <li>Licencia por una década garantizada</li>
         </ul>
 
+        <!-- CIFRAS FICTICIAS: reemplazar los montos en guaraníes por tus precios reales antes de publicar -->
+        <div class="value-stack">
+          <div class="value-stack-row"><span>Licencia completa de NOVA (precio final de mercado)</span><span>Gs. 12.950.000</span></div>
+          <div class="value-stack-row"><span>Actualizaciones y módulos nuevos por 10 años</span><span>Gs. 9.000.000</span></div>
+          <div class="value-stack-row"><span>Soporte prioritario 1-a-1 directo</span><span>Gs. 6.000.000</span></div>
+          <div class="value-stack-row"><span>Migración de datos asistida</span><span>Gs. 2.500.000</span></div>
+          <div class="value-stack-row"><span>Capacitación inicial para tu equipo</span><span>Gs. 1.500.000</span></div>
+          <div class="value-stack-total"><span>Valor total</span><span>Gs. 31.950.000</span></div>
+          <div class="value-stack-price"><span>Tu inversión como Fundador</span><span>Gs. 1.050.000</span></div>
+        </div>
+
         <span class="counter-label">Esta oportunidad se cierra de forma definitiva en:</span>
         <div class="countdown-timer" id="timer-fundadores">Calculando...</div>
 
@@ -335,12 +506,12 @@
         <div class="founders-progress-wrap">
           <div class="founders-progress-header">
             <span class="founders-progress-label">Cupos de Fundador Ocupados</span>
-            <span class="founders-progress-count" id="founders-count-label">5 / 50</span>
+            <span class="founders-progress-count" id="founders-count-label">0 / 50</span>
           </div>
           <div class="founders-progress-track">
             <div class="founders-progress-fill" id="founders-progress-fill" style="width: 24%"></div>
           </div>
-          <div class="founders-progress-sub" id="founders-progress-sub">38 cupos restantes</div>
+          <div class="founders-progress-sub" id="founders-progress-sub">50 cupos restantes</div>
         </div>
 
         <div class="card-cta">
@@ -349,7 +520,9 @@
         </div>
     </div>
 
-    <!-- OTRAS OPCIONES -->
+    <!-- OTRAS OPCIONES: jerarquía visual reducida a propósito frente a Fundadores -->
+    <p class="secondary-tiers-intro">¿Los cupos de Fundador ya se agotaron o tu estudio necesita otra escala? Estas son tus otras opciones:</p>
+
     <div class="offer-block tier-limited">
         <h3 style="margin-top: 0; font-size: 1.3rem;" class="gold-text">⭐ 40 CLIENTES SELECCIONADOS</h3>
         <p style="font-size: 0.95rem; color: var(--text-dim);">Condiciones preferenciales y precio reducido para estudios y empresas que buscan robustez y escalabilidad inmediata.</p>
@@ -359,6 +532,9 @@
           <li>Actualizaciones y soporte por 5 años</li>
           <li>Desarrollo modular constante</li>
         </ul>
+
+        <!-- CIFRA FICTICIA: reemplazar por el precio preferencial real -->
+        <p class="price-anchor">Valor de lista: <span class="old">Gs. 12.950.000</span> — Precio preferencial: <span class="new">Gs. 4.550.000</span></p>
 
         <!-- BARRA DE PROGRESO DE CLIENTES SELECCIONADOS -->
         <div class="founders-progress-wrap">
@@ -382,6 +558,9 @@
         <h3 style="margin-top: 0; font-size: 1.3rem;">🚀 OFERTA DE LANZAMIENTO GENERAL</h3>
         <p style="font-size: 0.95rem; color: var(--text-dim);">Accede a condiciones de pago especiales, increíbles descuentos exclusivos antes del lanzamiento al mercado con precio final.</p>
 
+        <!-- CIFRA FICTICIA: reemplazar por el precio de lanzamiento real -->
+        <p class="price-anchor">Precio final de lista: <span class="old">Gs. 12.950.000</span> — Precio de lanzamiento: <span class="new">Gs. 6.6500.000</span></p>
+
         <span class="counter-label" style="margin-top: 1rem;">La oferta de lanzamiento general expira en:</span>
         <div class="countdown-timer" id="timer-lanzamiento">Calculando...</div>
 
@@ -397,8 +576,8 @@
   <div class="guarantee-block">
     <div class="guarantee-icon">🛡️</div>
     <div class="guarantee-text">
-      <h4>Garantía de Satisfacción Total de 30 Días</h4>
-      <p>Estamos tan seguros del rendimiento y la estabilidad de NOVA que eliminamos todo el riesgo de tu decisión. Úsalo en tu operación diaria durante 30 días. Si no es el sistema más rápido y sólido que has probado, te devolvemos el 100% de tu inversión, sin trámites complicados.</p>
+      <h4>Garantía de Satisfacción Total</h4>
+      <p>Estamos tan seguros del rendimiento y la estabilidad de NOVA que eliminamos todo el riesgo de tu decisión. Úsalo en tu operación diaria durante 90 días luego de su fecha de lanzamiento. Si no es el sistema más rápido y sólido que has probado, te devolvemos el 100% de tu inversión, sin trámites complicados.</p>
     </div>
   </div>
 
@@ -503,7 +682,7 @@
   iniciarContador("timer-lanzamiento", "2026-12-30T23:59:59");
 
   // Barra de progreso (puedes actualizar este número manualmente)
-  const FUNDADORES_ACTUALES = 5;
+  const FUNDADORES_ACTUALES = 0;
   const FUNDADORES_TOTAL = 50;
   const restantes = FUNDADORES_TOTAL - FUNDADORES_ACTUALES;
   const porcentaje = Math.min((FUNDADORES_ACTUALES / FUNDADORES_TOTAL) * 100, 100);
